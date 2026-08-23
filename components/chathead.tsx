@@ -5,6 +5,18 @@ import ReactMarkdown from "react-markdown";
 import { X, Send, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Gemini spark SVG (inline, theme-aware via currentColor)
+const GeminiSvg = ({ className = "w-7 h-7" }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M12 24A14.304 14.304 0 0 0 0 12 14.304 14.304 0 0 0 12 0a14.305 14.305 0 0 0 12 12 14.305 14.305 0 0 0-12 12" />
+  </svg>
+);
+
 export function Chathead({ portfolio }: { portfolio: any }) {
   const [isOpen, setIsOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -250,9 +262,7 @@ export function Chathead({ portfolio }: { portfolio: any }) {
           {isOpen ? (
             <X className="w-6 h-6" />
           ) : (
-            <span className="text-2xl inline-block">
-              <AIIcon />
-            </span>
+            <GeminiSvg className="w-7 h-7" />
           )}
         </motion.div>
       </button>
