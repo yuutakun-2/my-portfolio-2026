@@ -134,16 +134,21 @@ export function Chathead({ portfolio }: { portfolio: any }) {
             <div className="p-4 border-b border-white/20 dark:border-white/10 flex justify-between items-center bg-white/40 dark:bg-black/40">
               <div className="flex items-center gap-2 text-gray-800 dark:text-gray-100 font-medium">
                 <div className="w-5 h-5 flex items-center justify-center">
-                  <motion.div
-                    animate={{ rotateY: [0, 360] }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 3,
-                      ease: "linear",
-                    }}
-                  >
-                    <AIIcon />
-                  </motion.div>
+                  {isOpen ? (
+                    <GeminiSvg className="w-5 h-5" />
+                  ) : (
+                    <motion.div
+                      style={{ transformStyle: "preserve-3d" }}
+                      animate={{ rotateY: [0, 360] }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 3,
+                        ease: "linear",
+                      }}
+                    >
+                      <AIIcon />
+                    </motion.div>
+                  )}
                 </div>
                 <span>AI Assistant</span>
               </div>
@@ -157,7 +162,7 @@ export function Chathead({ portfolio }: { portfolio: any }) {
             </div>
 
             {/* Chat Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
               {messages.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center text-gray-500 dark:text-gray-400 space-y-4">
                   <div className="p-4 rounded-full bg-black/5 dark:bg-white/5">
@@ -248,16 +253,18 @@ export function Chathead({ portfolio }: { portfolio: any }) {
       {/* Floating Action Button (Glassmorphism + Gemini Icon) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        style={{ perspective: 1000 }}
         className="w-14 h-14 rounded-full flex items-center justify-center backdrop-blur-xl bg-white/40 dark:bg-black/40 border-2 border-white/50 dark:border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:bg-white/60 dark:hover:bg-black/60 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer text-gray-900 dark:text-white"
         aria-label="Toggle chat"
       >
         <motion.div
-          animate={isOpen ? { rotate: 90, scale: 0.8 } : { rotateY: [0, 360] }}
+          animate={isOpen ? { rotateY: 0, scale: 0.8 } : { rotateY: [0, 360] }}
           transition={
             isOpen
               ? { duration: 0.2 }
               : { repeat: Infinity, duration: 4, ease: "linear" }
           }
+          style={{ transformStyle: "preserve-3d" }}
         >
           {isOpen ? (
             <X className="w-6 h-6" />
