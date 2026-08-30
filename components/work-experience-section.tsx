@@ -474,6 +474,23 @@ export function WorkExperienceSection({
     .exp-inactive-options {
       display: none;
     }
+
+    /* Hover underline for "Click to view full details" */
+    .exp-option-item.active .exp-click-hint {
+      color: rgba(255, 255, 255, 0.5);
+      transition: color 0.2s ease;
+    }
+    .exp-option-item.active .exp-click-hint .exp-click-hint-text {
+      text-decoration: none;
+      transition: text-decoration 0.2s ease, color 0.2s ease;
+    }
+    .exp-option-item.active:hover .exp-click-hint {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .exp-option-item.active:hover .exp-click-hint .exp-click-hint-text {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     
     /* Tablet and Mobile Responsive Styles */
     @media screen and (max-width: 1024px) {
@@ -658,8 +675,8 @@ export function WorkExperienceSection({
                       )}
 
                       {/* Click to expand prompt */}
-                      <div className="mt-2 text-[10px] text-white/50 font-mono tracking-wider flex items-center gap-1 group-hover:text-white/90 transition-colors">
-                        <span className="group-hover:underline underline-offset-2">
+                      <div className="exp-click-hint mt-2 text-[10px] font-mono tracking-wider flex items-center gap-1">
+                        <span className="exp-click-hint-text">
                           Click to view full details
                         </span>
                         <span>→</span>

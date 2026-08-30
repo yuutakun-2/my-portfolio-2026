@@ -51,6 +51,8 @@ model Project {
   repositoryUrl String?
   image         String?
   categories    String[]
+  startDate     String?
+  endDate       String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 

@@ -63,7 +63,7 @@ export function HeroSection({ portfolio, heroReady }: HeroSectionProps) {
               <RevealText
                 key="hero-name"
                 as="h1"
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-ink leading-[0.95] tracking-tight"
+                className="text-[45px] sm:text-[54px] md:text-7xl lg:text-8xl font-light text-ink leading-[0.95] tracking-tight"
                 style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}
                 stagger={60}
                 duration={800}
@@ -74,7 +74,7 @@ export function HeroSection({ portfolio, heroReady }: HeroSectionProps) {
               <RevealText
                 key="hero-tagline"
                 as="p"
-                className="text-2xl sm:text-3xl md:text-4xl text-ink/60 mt-4 font-light max-w-2xl leading-snug"
+                className="text-lg sm:text-[22.5px] md:text-[27px] text-ink/60 mt-4 font-light max-w-2xl leading-snug"
                 style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}
                 stagger={60}
                 duration={800}
@@ -88,7 +88,7 @@ export function HeroSection({ portfolio, heroReady }: HeroSectionProps) {
             <RevealText
               key="hero-loading"
               as="h1"
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-ink/30 leading-[0.95] tracking-tight"
+              className="text-[45px] sm:text-[54px] md:text-7xl lg:text-8xl font-light text-ink/30 leading-[0.95] tracking-tight"
               style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}
               stagger={60}
               duration={800}
